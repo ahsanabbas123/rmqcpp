@@ -42,6 +42,8 @@ install(
         COMPONENT librmq-dev
 )
 
+export(TARGETS rmq NAMESPACE rmqcpp:: FILE "${CMAKE_CURRENT_BINARY_DIR}/rmqcppConfig.cmake")
+
 install(EXPORT rmqTargets 
         FILE rmqcppTargets.cmake 
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rmqcpp
