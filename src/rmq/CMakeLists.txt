@@ -43,15 +43,6 @@ install(
 )
 
 export(TARGETS rmq 
-       NAMESPACE rmqcpp:: 
-       FILE "${CMAKE_INSTALL_LIBDIR}/rmqcppConfig.cmake")
-
-install(EXPORT rmqcppConfig
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    NAMESPACE rmqcpp::
-    COMPONENT librmq-dev)
-
-export(TARGETS rmq 
     NAMESPACE rmqcpp:: 
     FILE "${CMAKE_INSTALL_PREFIX}/share/rmqcpp/rmqcppConfig.cmake")
 
