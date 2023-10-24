@@ -34,7 +34,7 @@ install(
     TARGETS rmq
     EXPORT rmqTargets
     ARCHIVE
-        DESTINATION lib
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT librmq-dev
     PUBLIC_HEADER
         DESTINATION include
