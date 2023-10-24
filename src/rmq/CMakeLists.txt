@@ -14,7 +14,7 @@ add_library(rmq STATIC
     $<TARGET_OBJECTS:rmqa>
 )
 
-target_link_libraries(rmq PUBLIC bsl bdl bal ZLIB::ZLIB OpenSSL::Crypto OpenSSL::SSL)
+target_link_libraries(rmq INTERFACE bsl bdl bal ZLIB::ZLIB OpenSSL::Crypto OpenSSL::SSL)
 
 get_target_property(OPENSSL_TARGET_TYPE OpenSSL::SSL TYPE)
 if(OPENSSL_CRYPTO_LIBRARY MATCHES "\\.a$")
