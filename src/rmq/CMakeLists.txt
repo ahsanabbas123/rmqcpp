@@ -23,9 +23,10 @@ endif()
 
 target_compile_definitions(rmq PRIVATE USES_LIBRMQ_EXPERIMENTAL_FEATURES)
 
-target_include_directories(rmq PUBLIC $<INSTALL_INTERFACE:include/rmqt>)
-target_include_directories(rmq PUBLIC $<INSTALL_INTERFACE:include/rmqp>)
-target_include_directories(rmq PUBLIC $<INSTALL_INTERFACE:include/rmqa>)
+target_include_directories(rmq INTERFACE $<INSTALL_INTERFACE:include/rmqt> $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rmqt>)
+target_include_directories(rmq INTERFACE $<INSTALL_INTERFACE:include/rmqp> $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rmqp>)
+target_include_directories(rmq INTERFACE $<INSTALL_INTERFACE:include/rmqa> $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rmqa>)
+
 
 file(GLOB RMQ_PUBLIC_HEADERS rmqa/*h rmqp/*h rmqt/*h)
 set_target_properties(rmq PROPERTIES PUBLIC_HEADER "${RMQ_PUBLIC_HEADERS}")
