@@ -47,10 +47,11 @@ install(EXPORT rmqcppConfig
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/rmqcpp 
         NAMESPACE rmqcpp::)
 
-install(EXPORT rmqcppConfig
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/rmqcpp
-        NAMESPACE rmqcpp::
-        COMPONENT librmq-dev)
+include(CMakePackageConfigHelpers)
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in 
+                              "${CMAKE_CURRENT_BINARY_DIR}/rmqcppConfig.cmake"
+                              INSTALL_DESTINATION ${CMAKE_INSTALL_PREFIX}/share/rmqcpp) 
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/rmqcppConfig.cmake" DESTINATION ${CMAKE_INSTALL_PREFIX}/share/rmqcpp)
 
 # Emit some metadata required internally
 set(RMQ_PC_DEP_NAMES bsl bdl bal openssl)
