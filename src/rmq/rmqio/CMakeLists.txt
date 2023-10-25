@@ -16,10 +16,9 @@ add_library(rmqio OBJECT
     rmqio_watchdog.cpp
 )
 
-include(CMakeFindDependencyMacro)
 set(OPENSSL_USE_STATIC_LIBS TRUE)
-find_dependency(OpenSSL REQUIRED)
-find_dependency(ZLIB REQUIRED)
+find_package(OpenSSL REQUIRED)
+find_package(ZLIB REQUIRED)
 
 target_link_libraries(rmqio PUBLIC
     ZLIB::ZLIB
