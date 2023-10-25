@@ -1,9 +1,10 @@
 find_package(Threads REQUIRED) # CMake 3.26-rc3 Bug https://gitlab.kitware.com/cmake/cmake/-/issues/24505
-find_package(ZLIB REQUIRED)
-find_package(Boost REQUIRED)
+include(CMakeFindDependencyMacro)
+find_dependency(ZLIB REQUIRED)
+find_dependency(Boost REQUIRED)
 set(OPENSSL_USE_STATIC_LIBS TRUE)
-find_package(OpenSSL REQUIRED)
-find_package(GTest REQUIRED)
+find_dependency(OpenSSL REQUIRED)
+find_dependency(GTest REQUIRED)
 
 if( CMAKE_SIZEOF_VOID_P EQUAL 8 )
     set(BDE_PACKAGE_SEARCH_PATH "share/bde;lib64/cmake")

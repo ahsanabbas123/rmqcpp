@@ -33,7 +33,7 @@ set_target_properties(rmq PROPERTIES PUBLIC_HEADER "${RMQ_PUBLIC_HEADERS}")
 
 install(
     TARGETS rmq
-    EXPORT rmqcppConfig
+    EXPORT rmqcppTargets
     ARCHIVE
         DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT librmq-dev
@@ -42,7 +42,7 @@ install(
         COMPONENT librmq-dev
 )
 
-install(EXPORT rmqcppConfig 
+install(EXPORT rmqcppTargets 
         FILE rmqcppTargets.cmake 
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/rmqcpp 
         NAMESPACE rmqcpp::)
