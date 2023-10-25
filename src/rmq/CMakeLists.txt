@@ -45,7 +45,7 @@ install(
 install(EXPORT rmqcppTargets 
         FILE rmqcppTargets.cmake 
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/rmqcpp 
-        NAMESPACE rmq::)
+        NAMESPACE rmqcpp::)
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in 
