@@ -14,7 +14,7 @@ add_library(rmq STATIC
     $<TARGET_OBJECTS:rmqa>
 )
 
-target_link_libraries(rmq INTERFACE bsl bdl bal ZLIB::ZLIB OpenSSL::Crypto OpenSSL::SSL)
+target_link_libraries(rmq PUBLIC bsl bdl bal ZLIB::ZLIB OpenSSL::Crypto OpenSSL::SSL)
 
 get_target_property(OPENSSL_TARGET_TYPE OpenSSL::SSL TYPE)
 if(OPENSSL_CRYPTO_LIBRARY MATCHES "\\.a$")
@@ -45,7 +45,7 @@ install(
 install(EXPORT rmqcppTargets 
         FILE rmqcppTargets.cmake 
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/rmqcpp 
-        NAMESPACE rmqcpp::)
+        NAMESPACE rmq::)
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in 
