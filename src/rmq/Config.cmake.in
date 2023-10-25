@@ -1,8 +1,8 @@
 @PACKAGE_INIT@
 
 if(NOT TARGET rmqcpp)
-    foreach(dep bal;openssl;zlib)
-        find_dependency(${dep})
+    foreach(dep bal;OpenSSL;ZLIB)
+        find_package(${dep})
     endforeach()
 endif()
 
